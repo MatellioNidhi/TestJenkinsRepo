@@ -185,6 +185,29 @@ namespace Inseego.Repositories.CosmosDB.Implementation
             }
         }
 
+        public async Task<T> GetItemByQueryFromCollectionAsync(string whereQuery, string partition, string collectionId)
+        {
+            try
+            {
+                FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1, PartitionKey = new PartitionKey(partition) };
+
+                var documents = docClient.CreateDocumentQuery<T>(
+                    UriFactory.CreateDocumentCollectionUri(DatabaseId, collectionId),
+                    "SELECT * FROM " + collectionId + "" + whereQuery + "", queryOptions)
+                    .AsDocumentQuery();
+
+                List<T> items = new List<T>();
+                while (documents.HasMoreResults)
+                {
+                    items.AddRange(await documents.ExecuteNextAsync<T>());
+                }
+                return items.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public async Task<List<T>> GetItemsByQueryFromCollectionAsync(string whereQuery, string partition, string collectionId, bool enableCrossPartitionQuery = false)
         {
@@ -198,16 +221,16 @@ namespace Inseego.Repositories.CosmosDB.Implementation
 
                 var documents = docClient.CreateDocumentQuery<T>(
                 UriFactory.CreateDocumentCollectionUri(DatabaseId, collectionId),
-                "SELECT * FROM Tasks" + whereQuery + "",
+                "SELECT * FROM " + collectionId + "" + whereQuery + "",
                 queryOptions).AsDocumentQuery();
 
-                List<T> tasks = new List<T>();
+                List<T> items = new List<T>();
                 while (documents.HasMoreResults)
                 {
                     var t = await documents.ExecuteNextAsync<T>();
-                    tasks.AddRange(t);
+                    items.AddRange(t);
                 }
-                return tasks;
+                return items;
             }
             catch (Exception ex)
             {
@@ -248,6 +271,14 @@ namespace Inseego.Repositories.CosmosDB.Implementation
         {
             try
             {
+                //var documents = await docClient.ReplaceDocumentAsync(
+                //UriFactory.CreateDocumentUri(DatabaseId, collectionId, id), item,
+                //new RequestOptions { PartitionKey = new PartitionKey(partition) });
+
+                System.Uri uri = UriFactory.CreateDocumentUri(DatabaseId, collectionId, id);
+
+                var obj = new RequestOptions { PartitionKey = new PartitionKey(partition) };
+
                 var document = await docClient.ReplaceDocumentAsync(
                     UriFactory.CreateDocumentUri(DatabaseId, collectionId, id), item,
                     new RequestOptions { PartitionKey = new PartitionKey(partition) });
@@ -265,7 +296,7 @@ namespace Inseego.Repositories.CosmosDB.Implementation
         {
             try
             {
-                
+
                 FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1, EnableCrossPartitionQuery = enableCrossPartitionQuery };
 
                 if (!enableCrossPartitionQuery)
@@ -335,7 +366,7 @@ namespace Inseego.Repositories.CosmosDB.Implementation
         //    }
         //}
 
-        public  async Task CreateCollectionIfNotExistsAsync(string collectionId)
+        public async Task CreateCollectionIfNotExistsAsync(string collectionId)
         {
             try
             {

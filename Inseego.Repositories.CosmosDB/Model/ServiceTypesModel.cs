@@ -17,4 +17,17 @@ namespace Inseego.Repositories.CosmosDB.Model
         public string tenantId { get; set; }
         public string userId { get; set; }
     }
+
+    public class ServiceTypesStatusModel
+    {
+        public bool IsServiceTypesFound { get; set; }
+        public bool IsRequestValid { get; set; }
+        public string Message { get; set; }
+
+        public ServiceTypesStatusModel()
+        {
+            IsServiceTypesFound = false;
+            IsRequestValid = true;
+        }
+    }
 }

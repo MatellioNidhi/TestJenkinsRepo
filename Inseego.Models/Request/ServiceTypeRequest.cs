@@ -23,7 +23,7 @@ namespace Inseego.Models.Request
         public string id { get; set; }
 
         [JsonProperty("serviceType")]
-        public string ServiceTypeName { get; set; }       
+        public string ServiceTypeName { get; set; }
     }
 
     public class ServiceTypeDeleteRequest
