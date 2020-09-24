@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Implementation\HarshAccelerationService.cs" />
+    <Compile Remove="Implementation\HarshBreakingService.cs" />
+    <Compile Remove="Implementation\HarshCorneringService.cs" />
+    <Compile Remove="Implementation\NightDrivingService.cs" />
+    <Compile Remove="Implementation\OverSpeedingService.cs" />
+    <Compile Remove="Implementation\RiskChartService.cs" />
+    <Compile Remove="Interface\IHarshAccelerationService.cs" />
+    <Compile Remove="Interface\IHarshBreakingService.cs" />
+    <Compile Remove="Interface\IHarshCorneringService.cs" />
+    <Compile Remove="Interface\INightDrivingService.cs" />
+    <Compile Remove="Interface\IOverSpeedingService.cs" />
+    <Compile Remove="Interface\IRiskChartServic.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Inseego.Models\Inseego.Models.csproj" />
+    <ProjectReference Include="..\Inseego.Repositories.BlobStorage\Inseego.Repositories.BlobStorage.csproj" />
+    <ProjectReference Include="..\Inseego.Repositories.CosmosDB\Inseego.Repositories.CosmosDB.csproj" />
+    <ProjectReference Include="..\Inseego.Repositories.Postgres\Inseego.Repositories.Postgres.csproj" />
+    <ProjectReference Include="..\Inseego.Repositories.ServiceClient\Inseego.Repositories.ServiceClient.csproj" />
+    <ProjectReference Include="..\Inseego.Utilities\Inseego.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

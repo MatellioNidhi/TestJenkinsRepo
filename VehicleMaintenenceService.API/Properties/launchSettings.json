@@ -1,0 +1,122 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:36747",
+      "sslPort": 0
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "LogTablename": "VehicleMaintenceService",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "organization.service.url": "http://insg-api-mgt-dev.azure-api.net/organization",
+        "PostgresHost": "localhost",
+        "PostgresPassword": "Test@123#",
+        "PostgresUsername": "postgres",
+        "PostgresDatabaseName": "tm",
+        "PostgresPort": "5432",
+        "Reporting.Url": "https://vtapi-live.vision-tdx.com",
+        "Reporting.Password": "M3NhGjCWamf2y9Td#",
+        "Reporting.Username": "ctrack_vtapi@ctrack.co.uk",
+        "Reporting.FleetId": "805",
+        "Reporting.Enabled": "1",
+        "TempPath": ".\temp",
+        "azure.cosmosdb.uri": "https://inseego-cosmos-db.documents.azure.com:443/",
+        "azure.cosmosdb.saskey": "2BWU05kolR62njwvEktrcHNVI5iRaeAiuP2JV3z8lNHnVse1sd0FAnrxBI4nxweC6Rq0yC7SNXjxaMeVfi7prA==",
+        "azure.cosmosdb.database": "inseego",
+        "azure.postgresql.database": "inseego",
+        "azure.postgresql.hostname": "inseegopostgres.postgres.database.azure.com",
+        "azure.postgresql.username": "inseego_db_user@inseegopostgres",
+        "azure.postgresql.password": "#test012-1221#",
+        "localisation.service.url": "https://insg-api-mgt-dev.azure-api.net/localisation",
+        "localisationauth.service.url": "https://insg-api-mgt-dev.azure-api.net/localisationauth",
+        "service.persona.baseurl": "http://insg-api-mgt-dev.azure-api.net/persona/",
+        "service.groupmanagement.url": "http://insg-api-mgt-dev.azure-api.net/groupmanagement/",
+        "device.service.url": "http://insg-api-mgt-dev.azure-api.net/device",
+        "config.service.user.baseUrl": "http://insg-api-mgt-dev.azure-api.net/configuration/configurations/User",
+        "config.service.tenant.url": "http://insg-api-mgt-dev.azure-api.net/configuration/configurations/tenant",
+        "service.solution.baseurl": "http://insg-api-mgt-dev.azure-api.net/solution/",
+        "azure.redis.host": "inseego-shared-dev.redis.cache.windows.net",
+        "azure.redis.port": "6380",
+        "azure.redis.saskey": "j7WlYmRAQ+J6YbdthcTzjJdSqQFqQDEw1i4sF4pbsb0=",
+        "auth.service.url": "https://insg-api-mgt-dev.azure-api.net/auth",
+        "dashboard.service.username": "clarity@ctrack.com",
+        "dashboard.service.password": "MTIzR2l2ZU1lQWNjZXNzIw=="
+      }
+    },
+    "IntegrationTests": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "LogTablename": "VehicleMaintanance",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "organization.service.url": "http://insg-dev-api-mgt.azure-api.net/organization",
+        "PostgresHost": "localhost",
+        "PostgresPassword": "Test@123#",
+        "PostgresUsername": "postgres",
+        "PostgresDatabaseName": "tm",
+        "PostgresPort": "5432",
+        "Reporting.Url": "https://vtapi-live.vision-tdx.com",
+        "Reporting.Password": "M3NhGjCWamf2y9Td#",
+        "Reporting.Username": "ctrack_vtapi@ctrack.co.uk",
+        "Reporting.FleetId": "805",
+        "Reporting.Enabled": "1",
+        "TempPath": ".\temp",
+        "azure.cosmosdb.uri": "https://inseego-cosmos-db.documents.azure.com:443/",
+        "azure.cosmosdb.saskey": "2BWU05kolR62njwvEktrcHNVI5iRaeAiuP2JV3z8lNHnVse1sd0FAnrxBI4nxweC6Rq0yC7SNXjxaMeVfi7prA==",
+        "azure.cosmosdb.database": "inseego",
+        "azure.postgresql.database": "inseego",
+        "azure.postgresql.hostname": "inseegopostgres.postgres.database.azure.com",
+        "azure.postgresql.username": "inseego_db_user@inseegopostgres",
+        "azure.postgresql.password": "#test012-1221#"
+      }
+    },
+    "DashboardService": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "LogTablename": "DashboardService",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "azure.cosmosdb.uri": "https://inseego-cosmos-db.documents.azure.com:443/",
+        "azure.cosmosdb.saskey": "2BWU05kolR62njwvEktrcHNVI5iRaeAiuP2JV3z8lNHnVse1sd0FAnrxBI4nxweC6Rq0yC7SNXjxaMeVfi7prA==",
+        "azure.cosmosdb.database": "inseego",
+        "PostgresPort": "5432",
+        "azure.postgresql.database": "inseego",
+        "azure.postgresql.hostname": "inseegopostgres.postgres.database.azure.com",
+        "azure.postgresql.username": "inseego_db_user@inseegopostgres",
+        "azure.postgresql.password": "#test012-1221#"
+      },
+      "applicationUrl": "http://localhost:5000"
+    },
+    "Dev": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "LogTablename": "VehicleMaintananceService",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "PostgresHost": "inseegopostgres.postgres.database.azure.com",
+        "PostgresPassword": "#test012#",
+        "PostgresUsername": "inseego_db_user@inseegopostgres",
+        "organization.service.url": "http://insg-dev-api-mgt.azure-api.net/organization",
+        "azure.cosmosdb.uri": "https://inseego-cosmos-db.documents.azure.com:443/",
+        "azure.cosmosdb.saskey": "2BWU05kolR62njwvEktrcHNVI5iRaeAiuP2JV3z8lNHnVse1sd0FAnrxBI4nxweC6Rq0yC7SNXjxaMeVfi7prA==",
+        "azure.cosmosdb.database": "inseego",
+        "PostgresPort": "5432",
+        "azure.postgresql.database": "inseego",
+        "azure.postgresql.hostname": "inseegopostgres.postgres.database.azure.com",
+        "azure.postgresql.username": "inseego_db_user@inseegopostgres",
+        "azure.postgresql.password": "#test012-1221#"
+      }
+    }
+  }
+}
