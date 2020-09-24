@@ -81,7 +81,7 @@ namespace VehicleMaintananceService.API.Controllers
             {                
                 responseModel = _serviceTypeService.UpdateServiceTypes(requestModel, userId, tenantid);
                 if (!string.IsNullOrEmpty(responseModel.id))
-                    return Ok("Service type Update :" + responseModel.id);
+                    return Ok(responseModel.id);
                 else
                     return StatusCode((int)HttpStatusCode.BadRequest, requestModel);
             }
@@ -104,7 +104,7 @@ namespace VehicleMaintananceService.API.Controllers
             {
                 responseModel = _serviceTypeService.DeleteServiceTypes(requestModel, userId, tenantid);
                 if (responseModel)
-                    return Ok("Service type Deleted from Collection :" + requestModel.id);
+                    return Ok(requestModel.id);
                 else
                     return StatusCode((int)HttpStatusCode.BadRequest, requestModel);
             }
@@ -127,7 +127,7 @@ namespace VehicleMaintananceService.API.Controllers
             {
                 responseModel = _serviceTypeService.SetDeletedServiceTypes(requestModel, userId, tenantid);
                 if (!string.IsNullOrEmpty(responseModel.id))
-                    return Ok("Service type Deleted from Collection :" + requestModel.id);
+                    return Ok(requestModel.id);
                 else
                     return StatusCode((int)HttpStatusCode.BadRequest, requestModel);
             }
