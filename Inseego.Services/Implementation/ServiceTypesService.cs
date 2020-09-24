@@ -114,6 +114,28 @@ namespace Inseego.Services.Implementation
             return result;
         }
 
+        public ServiceTypesModel CheckServiceTypeByName(ServiceTypeUpdateRequest request, string tenantId, string userId, out ServiceTypesStatusModel serviceTypesStatus)
+        {
+            if (!string.IsNullOrWhiteSpace(request.id))
+            {
+                request.id = request.id.ToLower();
+            }
+
+            serviceTypesStatus = new ServiceTypesStatusModel();
+            string query = $" WHERE LOWER({servicePlanTypeCollectionId}.serviceTypeName) = '{request.ServiceTypeName} and {servicePlanTypeCollectionId}.tenantId) = '{tenantId} and {servicePlanTypeCollectionId}.userId) = '{userId} and c.isActive=true'";
+            ServiceTypesModel result = _cosmosDBOperationsRepository.GetItemByQueryFromCollectionAsync(
+                query, tenantId, servicePlanTypeCollectionId).Result;
+
+            if (result == null)
+            {
+                serviceTypesStatus.Message = String.Format($"Service type '{request.ServiceTypeName}' not found");
+                return null;
+            }
+
+            serviceTypesStatus.IsServiceTypesFound = true;
+            return result;
+        }
+
         public bool DeleteServiceTypes(ServiceTypeDeleteRequest request, string UserId, string TenantId)
         {
             ServiceTypesResponse responseModel = new ServiceTypesResponse();

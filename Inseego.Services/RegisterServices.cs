@@ -27,6 +27,7 @@ namespace Inseego.Services
             services.AddTransient<ICommonDrillService, CommonDrillService>();
             services.AddTransient<IServicePlanService, ServicePlanService>();
             services.AddTransient<IServiceTypeService, ServiceTypesService>();
+            services.AddTransient<ILicenseTypeService, LicenseTypesService>();
 
             services.AddSingleton(typeof(ICache<>), typeof(Cache<>));
 

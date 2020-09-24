@@ -23,6 +23,7 @@ namespace Inseego.Repositories.CosmosDB
             services.AddTransient<ICosmosDBOperationsRepository<Devices>, CosmosDBOperationsRepository<Devices>>();
             services.AddTransient<ICosmosDBOperationsRepository<ServicePlanModel>, CosmosDBOperationsRepository<ServicePlanModel>>();
             services.AddTransient<ICosmosDBOperationsRepository<ServiceTypesModel>, CosmosDBOperationsRepository<ServiceTypesModel>>();
+            services.AddTransient<ICosmosDBOperationsRepository<LicenseTypesModel>, CosmosDBOperationsRepository<LicenseTypesModel>>();
 
             services.AddTransient<ICTRIndexFinalRepository, CTRIndexFinalRepository>();
             services.AddTransient<IUsersRepository, UsersRepository>();
