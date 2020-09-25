@@ -27,7 +27,7 @@ namespace Inseego.Repositories.CosmosDB
             services.AddTransient<ICTRIndexFinalRepository, CTRIndexFinalRepository>();
             services.AddTransient<IUsersRepository, UsersRepository>();
             services.AddTransient<IDevicesRepository, DevicesRepository>();
-            
+            services.AddTransient<IServicePlanRepository, ServicePlanRepository>();
             return services;
         }
     }
