@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Inseego.Models.Enumerators;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -10,20 +12,38 @@ namespace Inseego.Models.Request
     /// </summary>
     public class ServicePlanRequest
     {
+        [JsonProperty(PropertyName = "id")]
+        public string id { get; set; }
+        [JsonProperty(PropertyName = "servicePlanName")]
         public string ServicePlanName { get; set; }
+        [JsonProperty(PropertyName = "serviceTypeId")]
         public int ServiceTypeId { get; set; }
+        [JsonProperty(PropertyName = "vehicleId")]
         public int VehicleId { get; set; }
+        [JsonProperty(PropertyName = "workShopDetail")]
         public WorkShopDetail WorkShopDetail { get; set; }
+        [JsonProperty(PropertyName = "serviceInterval")]
         public ServiceInterval ServiceInterval { get; set; }
+        [JsonProperty(PropertyName = "scheduleService")]
         public ScheduleService ScheduleService { get; set; }
+        [JsonProperty(PropertyName = "notify")]
         public Notify Notify { get; set; }
+        [JsonProperty(PropertyName = "createdOn")]
         public DateTime CreatedOn { get; set; }
+        [JsonProperty(PropertyName = "createdBy")]
         public string CreatedBy { get; set; }
+        [JsonProperty(PropertyName = "modifiedOn")]
         public DateTime ModifiedOn { get; set; }
+        [JsonProperty(PropertyName = "modifiedBy")]
         public string ModifiedBy { get; set; }
+        [JsonProperty(PropertyName = "isDeleted")]
         public bool IsDeleted { get; set; }
-        public bool IsACtive { get; set; }
-        public string TenantId { get; set; }
+        [JsonProperty(PropertyName = "isActive")]
+        public bool IsActive { get; set; }
+        [JsonProperty(PropertyName = "tenantId")]
+        public string tenantId { get; set; }
+        [JsonProperty(PropertyName = "servicePlanStatus")]
+        public ServicePlanStatus ServicePlanStatus { get; set; }
 
     }
 
@@ -37,7 +57,7 @@ namespace Inseego.Models.Request
     {
         public int ServiceIntervalTypeId { get; set; }
         public decimal Distance { get; set; }
-        public bool IsServiceIntervalTimeELapse { get; set; }
+        public bool IsServiceIntervalTimeLapse { get; set; }
         public int Days { get; set; }
         public int ReminderForDays { get; set; }
         public int ReminderForTimeElapse { get; set; }

@@ -10,7 +10,15 @@ namespace Inseego.Repositories.CosmosDB.Model
     /// </summary>
     public class ServicePlanModel
     {
-        public string Id { get; set; }
+        public ServicePlanModel()
+        {
+            WorkShopDetail = new WorkShopDetail();
+            ServiceInterval = new ServiceInterval();
+            ScheduleService = new ScheduleService();
+            Notify = new Notify();
+
+        }
+        public string id { get; set; }
         public string ServicePlanName { get; set; }
         public int ServiceTypeId { get; set; }
         public int VehicleId { get; set; }
@@ -23,8 +31,9 @@ namespace Inseego.Repositories.CosmosDB.Model
         public DateTime ModifiedOn { get; set; }
         public string ModifiedBy { get; set; }
         public bool IsDeleted { get; set; }
-        public bool IsACtive { get; set; }
-        public string TenantId { get; set; }
+        public bool IsActive { get; set; }
+        public string tenantId { get; set; }
+        public int ServicePlanStatus { get; set; }
 
     }
 
